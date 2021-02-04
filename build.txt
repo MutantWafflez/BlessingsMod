@@ -1,0 +1,3 @@
+displayName = Blessings & Curses
+author = MutantWafflez
+version = 0.1

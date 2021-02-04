@@ -1,0 +1,5 @@
+Blessings & Curses is a simple mechanical mod that adds two new mechanics into Terraria: Blessings & Curses!
+
+After certain thresholds are passed (such as killing a Vanilla boss for the first time), a random Blessing and/or Curse will be afflicted upon that world permanently. Blessings and Curses have a large variety of effects, from simple things such as increasing damage or defense to having enemies reincarnate upon death!
+
+Be Blessed, Terrarians!
