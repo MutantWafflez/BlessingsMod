@@ -97,5 +97,11 @@ namespace BlessingsMod.Custom.Interfaces {
         void PlayerPostNurseHeal(Player player, NPC nurse, int health, bool removeDebuffs, int price);
 
         #endregion
+
+        #region NPC Methods
+
+        void NPCSetDefaults(NPC npc);
+
+        #endregion
     }
 }
