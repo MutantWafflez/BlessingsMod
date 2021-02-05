@@ -39,7 +39,7 @@ namespace BlessingsMod.Content.Modifiers {
 
         public virtual void PlayerMeleeEffects(Player player, Item item, Rectangle hitbox) { }
 
-        public virtual float PlayerMeleeSpeed(Player player, Item item) => 1f;
+        public virtual float PlayerMeleeSpeed(Player player, Item item) => 0f;
 
         public virtual void PlayerModifyHitByNPC(Player player, NPC npc, ref int damage, ref bool crit) { }
 
@@ -99,6 +99,6 @@ namespace BlessingsMod.Content.Modifiers {
 
         public virtual bool PlayerShoot(Player player, Item item, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack) => true;
 
-        public virtual float PlayerUseTime(Player player, Item item) => 1f;
+        public virtual float PlayerUseTime(Player player, Item item) => 0f;
     }
 }
