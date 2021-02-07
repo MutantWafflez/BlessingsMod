@@ -1,5 +1,6 @@
 ﻿using BlessingsMod.Custom.Interfaces;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 
@@ -12,6 +13,8 @@ namespace BlessingsMod.Content.Modifiers {
         public virtual string BlessingDisplayName => null;
 
         public virtual string BlessingDescription => null;
+
+        #region Player Methods
 
         public virtual void PlayerBadLifeRegen(Player player) { }
 
@@ -100,5 +103,55 @@ namespace BlessingsMod.Content.Modifiers {
         public virtual bool PlayerShoot(Player player, Item item, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack) => true;
 
         public virtual float PlayerUseTime(Player player, Item item) => 0f;
+
+        #endregion
+
+        #region NPC Methods
+
+        public virtual void NPCSetDefaults(NPC npc) { }
+
+        public virtual bool NPCPreAI(NPC npc) => true;
+
+        public virtual void NPCAI(NPC npc) { }
+
+        public virtual void NPCPostAI(NPC npc) { }
+
+        public virtual bool NPCPreDraw(NPC npc, SpriteBatch spriteBatch, Color drawColor) => true;
+
+        public virtual void NPCPostDraw(NPC npc, SpriteBatch spriteBatch, Color drawColor) { }
+
+        public virtual void NPCDrawBehind(NPC npc, int index) { }
+
+        public virtual void NPCDrawEffects(NPC npc, ref Color drawColor) { }
+
+        public virtual void NPCModifyHitByItem(NPC npc, Player player, Item item, ref int damage, ref float knockback, ref bool crit) { }
+
+        public virtual void NPCModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection) { }
+
+        public virtual void NPCModifyHitNPC(NPC npc, NPC target, ref int damage, ref float knockback, ref bool crit) { }
+
+        public virtual void NPCModifyHitPlayer(NPC npc, Player target, ref int damage, ref bool crit) { }
+
+        public virtual void NPCOnHitByItem(NPC npc, Player player, Item item, int damage, float knockback, bool crit) { }
+
+        public virtual void NPCOnHitByProjectile(NPC npc, Projectile projectile, int damage, float knockback, bool crit) { }
+
+        public virtual void NPCOnHitNPC(NPC npc, NPC target, int damage, float knockback, bool crit) { }
+
+        public virtual void NPCOnHitPlayer(NPC npc, Player target, int damage, bool crit) { }
+
+        public virtual void NPCUpdateLifeRegen(NPC npc, ref int damage) { }
+
+        public virtual bool NPCCheckDead(NPC npc) => true;
+
+        public virtual bool NPCCheckActive(NPC npc) => true;
+
+        public virtual bool NPCPreLoot(NPC npc) => true;
+
+        public virtual void NPCLoot(NPC npc) { }
+
+        public virtual bool NPCSpecialLoot(NPC npc) => false;
+
+        #endregion
     }
 }

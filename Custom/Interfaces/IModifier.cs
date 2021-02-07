@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 
@@ -101,6 +102,48 @@ namespace BlessingsMod.Custom.Interfaces {
         #region NPC Methods
 
         void NPCSetDefaults(NPC npc);
+
+        bool NPCPreAI(NPC npc);
+
+        void NPCAI(NPC npc);
+
+        void NPCPostAI(NPC npc);
+
+        bool NPCPreDraw(NPC npc, SpriteBatch spriteBatch, Color drawColor);
+
+        void NPCPostDraw(NPC npc, SpriteBatch spriteBatch, Color drawColor);
+
+        void NPCDrawBehind(NPC npc, int index);
+
+        void NPCDrawEffects(NPC npc, ref Color drawColor);
+
+        void NPCModifyHitByItem(NPC npc, Player player, Item item, ref int damage, ref float knockback, ref bool crit);
+
+        void NPCModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection);
+
+        void NPCModifyHitNPC(NPC npc, NPC target, ref int damage, ref float knockback, ref bool crit);
+
+        void NPCModifyHitPlayer(NPC npc, Player target, ref int damage, ref bool crit);
+
+        void NPCOnHitByItem(NPC npc, Player player, Item item, int damage, float knockback, bool crit);
+
+        void NPCOnHitByProjectile(NPC npc, Projectile projectile, int damage, float knockback, bool crit);
+
+        void NPCOnHitNPC(NPC npc, NPC target, int damage, float knockback, bool crit);
+
+        void NPCOnHitPlayer(NPC npc, Player target, int damage, bool crit);
+
+        void NPCUpdateLifeRegen(NPC npc, ref int damage);
+
+        bool NPCCheckDead(NPC npc);
+
+        bool NPCCheckActive(NPC npc);
+
+        bool NPCPreLoot(NPC npc);
+
+        void NPCLoot(NPC npc);
+
+        bool NPCSpecialLoot(NPC npc);
 
         #endregion
     }

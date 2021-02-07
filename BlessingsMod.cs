@@ -1,5 +1,6 @@
 using BlessingsMod.Content.Modifiers;
 using BlessingsMod.Custom;
+using BlessingsMod.Custom.Interfaces;
 using System;
 using System.Collections.Generic;
 using Terraria.ModLoader;
@@ -11,9 +12,12 @@ namespace BlessingsMod {
 
         public static List<Curse> possibleCurses;
 
+        public static List<IModifier> activeModifiers;
+
         public override void Load() {
             possibleBlessings = new List<Blessing>();
             possibleCurses = new List<Curse>();
+            activeModifiers = new List<IModifier>();
 
             foreach (Type blessingType in BlessingUtilities.GetAllChildrenOfClass<Blessing>()) {
                 possibleBlessings.Add((Blessing)Activator.CreateInstance(blessingType));
@@ -27,6 +31,7 @@ namespace BlessingsMod {
         public override void Unload() {
             possibleBlessings = null;
             possibleCurses = null;
+            activeModifiers = null;
         }
     }
 }
