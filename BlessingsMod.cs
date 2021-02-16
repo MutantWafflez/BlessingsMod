@@ -62,6 +62,7 @@ namespace BlessingsMod {
         }
 
         public override void Unload() {
+            ModInstance = null;
             possibleBlessings = null;
             possibleCurses = null;
             activeModifiers = null;
