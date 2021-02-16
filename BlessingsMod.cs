@@ -1,5 +1,4 @@
 using BlessingsMod.Content.Modifiers;
-using BlessingsMod.Content.UI;
 using BlessingsMod.Custom;
 using BlessingsMod.Custom.Interfaces;
 using Microsoft.Xna.Framework;
@@ -23,16 +22,6 @@ namespace BlessingsMod {
         public static List<Curse> possibleCurses;
 
         public static List<IModifier> activeModifiers;
-
-        #endregion
-
-        #region UI Fields
-
-        internal UserInterface modifierRevealInterface;
-
-        internal ModifierRevealUI revealUIState;
-
-        internal GameTime lastGameTime;
 
         #endregion
 
@@ -70,49 +59,12 @@ namespace BlessingsMod {
             }
 
             #endregion
-
-            #region UI Initialization
-
-            if (Main.netMode != NetmodeID.Server) {
-                modifierRevealInterface = new UserInterface();
-                revealUIState = new ModifierRevealUI();
-                revealUIState.Activate();
-                modifierRevealInterface.SetState(revealUIState);
-            }
-
-            #endregion
         }
 
         public override void Unload() {
             possibleBlessings = null;
             possibleCurses = null;
             activeModifiers = null;
-        }
-
-        #endregion
-
-        #region UI
-
-        public override void UpdateUI(GameTime gameTime) {
-            lastGameTime = gameTime;
-            if (modifierRevealInterface?.CurrentState != null) {
-                modifierRevealInterface.Update(gameTime);
-            }
-        }
-
-        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers) {
-            int mouseTextIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Mouse Text"));
-            if (mouseTextIndex != -1) {
-                layers.Insert(mouseTextIndex, new LegacyGameInterfaceLayer(
-                    "BlessingsMod: Modifier Reveal Panel",
-                    delegate {
-                        if (lastGameTime != null && modifierRevealInterface?.CurrentState != null) {
-                            modifierRevealInterface.Draw(Main.spriteBatch, lastGameTime);
-                        }
-                        return true;
-                    },
-                       InterfaceScaleType.UI));
-            }
         }
 
         #endregion
